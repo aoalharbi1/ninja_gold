@@ -10,11 +10,11 @@
     margin: 20px 0px 20px 0px;
 }
 .result {
-    vertical-align: -50%;
     width: 120px;
     height: 30px;
     border: 2px black solid;
     display: inline-block;
+    text-align: center;
 }
 .sub_container {
     display: flex;
