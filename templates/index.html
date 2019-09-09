@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="gold">
+            Your Gold: 
+            <div class="result">{{session['gold']}}</div>
+        </div>
+        <div class="sub_container">
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="which_form" value="farm">
+                <h2>Farm</h2>
+                <p>(earns 10-20 golds)</p>
+                <input type="submit" value="Find Gold">
+            </form>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="which_form" value="cave">
+                <h2>Cave</h2>
+                <p>(earns 5-10 golds)</p>
+                <input type="submit" value="Find Gold">
+            </form>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="which_form" value="house">
+                <h2>House</h2>
+                <p>(earns 2-5 golds)</p>
+                <input type="submit" value="Find Gold">
+            </form>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="which_form" value="casino">
+                <h2>Casino</h2>
+                <p>(earns/takes 0-50 golds)</p>
+                <input type="submit" value="Find Gold">
+            </form>
+        </div>
+        <div class="logs">
+            Activities:
+            <div class="display_logs">
+                <ul>
+                    {{session['message']|safe}}
+                </ul>
+            </div>
+        </div>
+        <input class="reset" type="button" value="Reset" onclick="window.location.href='/reset'"/>
+    </div>
+</body>
+</html>
